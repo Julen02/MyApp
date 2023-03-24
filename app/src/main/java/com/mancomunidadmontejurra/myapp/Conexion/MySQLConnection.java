@@ -9,9 +9,9 @@ public class MySQLConnection {
     private static final String DB_USER = "admin";
     private static final String DB_PASS = "root";
 
-    public static Connection getConnection() throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
-        String connectionString = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT + "/" + DB_NAME+"?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true";
-        Class.forName("com.mysql.jdbc.Driver").newInstance();
+    public static Connection getConnection() throws  SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+        String connectionString = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT + "/" + DB_NAME;
+        Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         return DriverManager.getConnection(connectionString, DB_USER, DB_PASS);
     }
 }
